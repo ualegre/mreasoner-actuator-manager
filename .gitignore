@@ -1,0 +1,9 @@
+actuator-manager/target/*
+!actuator-manager/target/actuator-manager-*.jar
+actuator-manager/target/actuator-manager-*-javadoc.jar
+actuator-manager/target/actuator-manager-*-sources.jar
+actuator-manager/src/main/resources
+actuator-manager/.settings
+actuator-manager/src/test
+/sonar-project.properties
+/.sonar/
