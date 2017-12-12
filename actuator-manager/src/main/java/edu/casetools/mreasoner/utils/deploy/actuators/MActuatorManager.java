@@ -1,41 +1,31 @@
-package edu.casetools.mreasoner.actuatormanager;
+package edu.casetools.mreasoner.utils.deploy.actuators;
 
 import java.util.Vector;
 
-import edu.casetools.mreasoner.actuatormanager.actuators.Actuator;
-import edu.casetools.mreasoner.actuatormanager.actuators.ActuatorConfigs;
-import edu.casetools.mreasoner.actuatormanager.actuators.lamp.LampActuator;
-import edu.casetools.mreasoner.actuatormanager.actuators.lamp.LampConfigs;
 import edu.casetools.mreasoner.configurations.data.MDBConfigs;
 import edu.casetools.mreasoner.configurations.data.MDBTypes.DB_IMPLEMENTATION;
 import edu.casetools.mreasoner.database.core.operations.DatabaseOperations;
 import edu.casetools.mreasoner.database.core.operations.DatabaseOperationsFactory;
+import edu.casetools.mreasoner.utils.deploy.actuators.data.Action;
+import edu.casetools.mreasoner.utils.deploy.actuators.data.ActuatorConfigs;
+import edu.casetools.mreasoner.utils.deploy.actuators.device.Actuator;
 
 
 
-public class ActuatorManager extends Thread{
+public class MActuatorManager extends Thread{
 
 	private boolean running;
-	private DatabaseOperations databaseOperations;
-	//private LampActuator lampOn;
+	private DatabaseOperations databaseOperations;	
+	protected Vector<Actuator> actuators;
 	
-	private Vector<Actuator> actuators;
-	public ActuatorManager(MDBConfigs configs){
-		actuators = new Vector<Actuator>();
+	public MActuatorManager(MDBConfigs configs, Vector<Actuator> actuators){	
+		this.actuators = actuators;
 		databaseOperations = DatabaseOperationsFactory.getDatabaseOperations(DB_IMPLEMENTATION.POSTGRESQL, configs);
 		running = true;
 		
 	}
-	
-	private void initialization(){
-		LampConfigs lampOnConfigs = new LampConfigs("lampOn");
-		LampActuator lampOn = new LampActuator(lampOnConfigs);
-		actuators.add(lampOn);
-		
-	}
-	
+
 	public void run(){
-		initialization();
 		while (running)
 		{
 			for(int i=0;i<actuators.size();i++){

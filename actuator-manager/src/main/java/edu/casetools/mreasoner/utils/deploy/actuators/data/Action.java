@@ -1,4 +1,4 @@
-package edu.casetools.mreasoner.actuatormanager;
+package edu.casetools.mreasoner.utils.deploy.actuators.data;
 
 public class Action {
 	

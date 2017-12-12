@@ -1,4 +1,4 @@
-package edu.casetools.mreasoner.actuatormanager.actuators;
+package edu.casetools.mreasoner.utils.deploy.actuators.data;
 
 public abstract class ActuatorConfigs {
 	 String state;
