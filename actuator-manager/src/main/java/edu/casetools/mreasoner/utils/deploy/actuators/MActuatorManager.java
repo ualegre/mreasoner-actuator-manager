@@ -2,8 +2,8 @@ package edu.casetools.mreasoner.utils.deploy.actuators;
 
 import java.util.Vector;
 
-import edu.casetools.mreasoner.configurations.data.MDBConfigs;
-import edu.casetools.mreasoner.configurations.data.MDBTypes.DB_IMPLEMENTATION;
+import edu.casetools.mreasoner.core.configs.MDBConfigs;
+import edu.casetools.mreasoner.database.core.MDBImplementations.DB_IMPLEMENTATION;
 import edu.casetools.mreasoner.database.core.operations.DatabaseOperations;
 import edu.casetools.mreasoner.database.core.operations.DatabaseOperationsFactory;
 import edu.casetools.mreasoner.utils.deploy.actuators.data.Action;
